@@ -28,6 +28,10 @@ public class RegistrationPage {
     TableComponent table=new TableComponent();
     public RegistrationPage openPage(){
         open("/automation-practice-form");
+        return this;
+    }
+
+    public RegistrationPage hideBanner(){
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         return this;

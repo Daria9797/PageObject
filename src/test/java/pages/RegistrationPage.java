@@ -81,10 +81,10 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setHobbies(String hobby1,String hobby2){
+    public RegistrationPage setHobbies(String hobby){
 
-        userHobbiesInput.$(byText(hobby1)).click();
-        userHobbiesInput.$(byText(hobby2)).click();
+        userHobbiesInput.$(byText(hobby)).click();
+
         return this;
     }
 
@@ -101,10 +101,14 @@ public class RegistrationPage {
     }
 
 
-    public RegistrationPage setCityState(String state,String city) {
+    public RegistrationPage setState(String state) {
 
         userStateInput.click();
         userCityWrapper.$(byText(state)).click();
+        return this;
+    }
+    public RegistrationPage setCity(String city) {
+
         userCityInput.click();
         userCityWrapper.$(byText(city)).click();
         return this;

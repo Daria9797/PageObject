@@ -1,34 +1,39 @@
+
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
 
 public class RegistrationWithPageObject extends TestBase {
-    RegistrationPage regPage = new RegistrationPage();
 
+    RegistrationPage regPage = new RegistrationPage();
+    TestData testData=new TestData();
     @Test
     public void enterFormTest() {
         regPage.openPage().
                 hideBanner().
-                setFirstName("Daria").
-                setLastName("Kuteynikova").
-                setUserEmail("kolohmatova@yandex.ru").
-                setGender("Female").
-                setUserNumber("9002172121").
-                setCalendar("06", "January", "1997").
-                setSubjects("Maths").
-                setHobbies("Sports", "Reading").pictureAdd("cat.jpg").
-                setAdress("Moskow").setCityState("Haryana", "Karnal").
+                setFirstName(testData.randomName).
+                setLastName(testData.randomLastName).
+                setUserEmail(testData.randomEmail).
+                setGender(testData.randomGender).
+                setUserNumber(testData.randomNumber).
+                setCalendar(testData.randomDay, testData.randomMonth, testData.randomYear).
+                setSubjects(testData.randomSubject).
+                setHobbies(testData.randomHobbi).
+                pictureAdd(testData.randomPicture).
+                setAdress(testData.randomAdress).
+                setState(testData.randomState).
+                setCity(testData.randomStateCity).
                 clickSubmit().
-                resultOfTable("Daria Kuteynikova").
-                resultOfTable("kolohmatova@yandex.ru").
-                resultOfTable("Female").
-                resultOfTable("9002172121").
-                resultOfTable("6 January,1997").
-                resultOfTable("Maths").
-                resultOfTable("Sports, Reading").
-                resultOfTable("cat.jpg").
-                resultOfTable("Moskow").
-                resultOfTable("Haryana Karnal");
+                resultOfTable(testData.randomName+ " " +testData.randomLastName).
+                resultOfTable(testData.randomEmail).
+                resultOfTable(testData.randomGender).
+                resultOfTable(testData.randomNumber).
+                resultOfTable(testData.randomDay+ " " +testData.randomMonth+ "," +testData.randomYear).
+                resultOfTable(testData.randomSubject).
+                resultOfTable(testData.randomHobbi).
+                resultOfTable(testData.randomPicture).
+                resultOfTable(testData.randomAdress).
+                resultOfTable(testData.randomState+" "+testData.randomStateCity);
 
     }
 

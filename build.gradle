@@ -12,6 +12,7 @@ repositories {
 dependencies {
     implementation("org.junit.jupiter:junit-jupiter:5.9.3")
     implementation("com.codeborne:selenide:6.16.0")
+    implementation 'com.github.javafaker:javafaker:1.0.2'
 }
 
 test {
